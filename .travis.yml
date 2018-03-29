@@ -1,8 +1,11 @@
+os: osx
 osx_image: xcode8.3
 language: objective-c
-before_install:
- - ./travis-build.sh
+
+install:
+  - ./travis-build.sh
 
 script:
-  - xcodebuild -project OpenSSL-for-iOS.xcodeproj -scheme OpenSSL-for-iOS -sdk iphonesimulator clean build
-  - cd targets && xcodebuild -project OpenSSL-for-iOS.xcodeproj -scheme OpenSSL-for-iOS -sdk iphonesimulator clean build
+  - cd ../
+  - sudo tar -zcvf openssl.tar.gz openssl
+  - curl --upload-file ./openssl.tar.gz https://transfer.sh/
