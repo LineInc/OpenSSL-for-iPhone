@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode8.3
+osx_image: xcode10.1
 language: objective-c
 
 
@@ -9,4 +9,4 @@ install:
 script:
   - cd ../
   - sudo tar -zcvf openssl.tar.gz openssl
-  - curl --upload-file ./openssl.tar.gz https://transfer.sh/
+  - - wget --method PUT --body-file=./openssl.tar.gz https://transfer.sh/openssl.tar.gz -O - -nv
