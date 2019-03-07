@@ -9,4 +9,5 @@ install:
 script:
   - cd ../
   - sudo tar -zcvf openssl.tar.gz openssl
+  - ls -la
   - - wget --method PUT --body-file=./openssl.tar.gz https://transfer.sh/openssl.tar.gz -O - -nv
